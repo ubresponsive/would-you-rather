@@ -1,0 +1,109 @@
+/* Bulma Defaults */
+
+@import 'bulma/bulma.sass';
+
+$card-header-background-color: #eee;
+
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+/* NavBar */
+$navbar-item-color: #fff;
+
+.navbar {
+	margin-bottom: 30px;
+
+	.navbar-item {
+		a {
+			color: #fff;
+			&.is-active {
+				color: #363636;
+			}
+		}
+		:hover {
+			color: #777;
+		}
+	}
+}
+/* Dashboard Page */
+.tabs {
+	li {
+		&.is-active span {
+			color: $primary-dark;
+			border-bottom-color: $primary-dark;
+		}
+		span {
+			align-items: center;
+			border-bottom-style: solid;
+			border-bottom-width: 1px;
+			border-bottom-color: #dbdbdb;
+			color: #4a4a4a;
+			display: flex;
+			justify-content: center;
+			margin-bottom: -1px;
+			padding: 0.5em 1em;
+			vertical-align: top;
+
+			&:hover {
+				cursor: pointer;
+				color: $primary;
+			}
+		}
+	}
+}
+
+.tab-content {
+	display: none;
+	.is-active {
+		display: block;
+	}
+}
+
+/* Results Page */
+
+.card {
+	.card-content {
+		border-top: 1px solid #eee;
+	}
+	.tag {
+		float: right;
+	}
+	.card-header {
+		background: #4a4a4a;
+		.card-header-title {
+			color: #fff;
+		}
+	}
+}
+
+// li {
+// 	margin: 0;
+// 	padding: 0;
+// 	list-style: none;
+// }
+
+/*  Leaderboard Page */
+
+// .media-content {
+// 	border-right: 1px solid #eee;
+// }
+
+.score {
+	height: 140px;
+}
+
+.media-left {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 140px;
+}
