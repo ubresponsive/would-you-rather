@@ -36,7 +36,7 @@ function mapStateToProps({ users }) {
 	);
 	// what is the highest score
 	const highScore = Object.values(newUsers)[0];
-	// how many leaders do we have to show the trophy icon?
+	// how many leaders do we have, to show the trophy icon?
 	const leaders = Object.values(newUsers).filter((x) => x === highScore).length;
 
 	return {

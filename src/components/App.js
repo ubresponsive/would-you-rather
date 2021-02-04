@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import LoadingBar from 'react-redux-loading-bar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { handleInitialData } from '../actions/shared';
+import Login from './Login';
 import Nav from './Nav';
 import Dashboard from './Dashboard';
 import NewQuestion from './NewQuestion';
@@ -18,6 +19,10 @@ class App extends React.Component {
 	}
 
 	render() {
+		if (this.props.authedUser !== null) {
+			return <Login />;
+		}
+
 		return (
 			<Router className="App" basename="/">
 				<main>
@@ -28,6 +33,7 @@ class App extends React.Component {
 							<ToastContainer />
 							<div className="container">
 								<Switch>
+									<Route path="/login" exact component={Login} />
 									<Route path="/" exact component={Dashboard} />
 									<Route path="/new" component={NewQuestion} />
 									<Route path="/question/:id" component={QuestionPage} />

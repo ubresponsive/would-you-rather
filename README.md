@@ -1,6 +1,8 @@
 # Would You Rather Project
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+Would you rather is a game whereby the user can create new polls consisting of two questions and can select one of those choices. The user can vote on all polls and view the results of each poll as well as a leaderboard.
+
+This app includes Bulma for CSS, toastify for notifications and redux for state management.
 
 The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
 
