@@ -37,12 +37,13 @@ class NewQuestion extends Component {
 		e.preventDefault();
 		const { optionOne, optionTwo } = this.state;
 		const { dispatch } = this.props;
+		const { authedUser } = this.props;
 
 		dispatch(
 			addPoll({
 				optionOneText: optionOne,
 				optionTwoText: optionTwo,
-				author: 'tylermcginnis',
+				author: authedUser,
 			})
 		);
 
@@ -129,4 +130,10 @@ class NewQuestion extends Component {
 	}
 }
 
-export default connect()(NewQuestion);
+function mapStateToProps({ authedUser }) {
+	return {
+		authedUser,
+	};
+}
+
+export default connect(mapStateToProps)(NewQuestion);

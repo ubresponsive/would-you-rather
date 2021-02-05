@@ -12,7 +12,21 @@ import {
 import { setAuthedUser } from '../actions/authedUser';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 
-const AUTHED_ID = 'tylermcginnis';
+let AUTHED_ID = false;
+
+// add logged in user as AUTHED_ID
+export function addAuthedUser(AUTHED_ID) {
+	return (dispatch) => {
+		dispatch(setAuthedUser(AUTHED_ID.authedUser));
+	};
+}
+
+// log user out
+export function logoutUser() {
+	return (dispatch) => {
+		dispatch(setAuthedUser(false));
+	};
+}
 
 // get data from database
 export function handleInitialData() {
@@ -32,7 +46,7 @@ export function addPoll(question) {
 	return (dispatch) => {
 		return saveQuestion(question).then((res) => {
 			dispatch(handleAddQuestion(res));
-			dispatch(handleUserQuestion(res.id, res.author));
+			dispatch(handleUserQuestion(res.id));
 		});
 	};
 }

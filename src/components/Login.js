@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addAuthedUser } from '../actions/shared';
 import { BiUserMinus } from 'react-icons/bi';
-import { Link, withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
-class Login extends Component {
+class Logins extends Component {
 	handleDropdown = (e) => {
 		e.currentTarget.closest('.dropdown').classList.toggle('is-active');
 	};
 
 	handleUser = (k) => (e) => {
 		e.currentTarget.closest('.dropdown').classList.toggle('is-active');
-		console.log(k);
+
+		const { dispatch } = this.props;
+
+		dispatch(
+			addAuthedUser({
+				authedUser: k,
+			})
+		);
 	};
 
 	render() {
+		const { from } = this.props.location.state || { from: { pathname: '/' } };
+
+		if (this.props.authedUser !== false) {
+			return <Redirect to={from} />;
+		}
+
 		return (
 			<main>
 				<nav
@@ -26,7 +40,7 @@ class Login extends Component {
 						<div className="column is-two-fifths">
 							<h1 className="title is-1">LOGIN</h1>
 							<div className="message-header">
-								<p>{this.props.authedUser}</p>
+								<p>header</p>
 							</div>
 							<div className="card mb-6">
 								<div className="card-content">
@@ -73,20 +87,19 @@ class Login extends Component {
 	}
 }
 
-function mapStateToProps({ authedUser, users }) {
+function mapStateToProps({ users, authedUser }) {
 	const newUsers = Object.fromEntries(
 		Object.entries(users)
 			.map(([k, v]) => [k, users[k].name])
 			.sort()
 	);
 
-	console.log(newUsers, 'newusers');
+	console.log('Login Page - mapStatetoProps - authedUser', authedUser);
 
 	return {
 		authedUser,
-		//users: Object.values(users).sort(),
 		users: newUsers,
 	};
 }
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(Logins);
