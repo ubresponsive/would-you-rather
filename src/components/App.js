@@ -6,9 +6,8 @@ import {
 	Route,
 	Switch,
 	Redirect,
-	useHistory,
 } from 'react-router-dom';
-import { handleInitialData, logoutUser } from '../actions/shared';
+import { handleInitialData } from '../actions/shared';
 import Logins from './Login';
 import Nav from './Nav';
 import Dashboard from './Dashboard';
@@ -18,30 +17,6 @@ import ResultsPage from './ResultsPage';
 import LeaderboardPage from './LeaderboardPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-function AuthButton(props) {
-	const history = useHistory();
-	const authedUser = props.user;
-	const dispatch = props.dispatch;
-
-	return authedUser !== false ? (
-		<p>
-			Welcome!{' '}
-			<button
-				onClick={() => {
-					dispatch(logoutUser());
-					history.push('/');
-				}}
-			>
-				Sign out
-			</button>
-		</p>
-	) : (
-		<>
-			<p>Signed Out - You are not logged in!!!!</p>
-		</>
-	);
-}
 
 function PrivateRoute({ component: Component, user, ...rest }) {
 	return (
@@ -77,12 +52,7 @@ class App extends React.Component {
 					<LoadingBar />
 					{this.props.loading === true ? null : (
 						<>
-							<AuthButton
-								user={this.props.authedUser}
-								dispatch={this.props.dispatch}
-							/>
 							<Nav />
-
 							<ToastContainer />
 							<div className="container">
 								<Switch>

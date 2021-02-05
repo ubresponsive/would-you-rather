@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addAuthedUser } from '../actions/shared';
-import { BiUserMinus } from 'react-icons/bi';
+import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import { Redirect } from 'react-router-dom';
 
 class Logins extends Component {
+	state = {
+		arrow: true,
+	};
+
 	handleDropdown = (e) => {
 		e.currentTarget.closest('.dropdown').classList.toggle('is-active');
+		e.currentTarget.classList.toggle('is-black');
+		this.setState((prevState) => ({
+			arrow: !prevState.arrow,
+		}));
 	};
 
 	handleUser = (k) => (e) => {
@@ -30,17 +38,12 @@ class Logins extends Component {
 
 		return (
 			<main>
-				<nav
-					className="navbar is-primary pl-4"
-					role="navigation"
-					aria-label="main navigation"
-				/>
 				<div className="container">
 					<div className="columns">
 						<div className="column is-two-fifths">
 							<h1 className="title is-1">LOGIN</h1>
 							<div className="message-header">
-								<p>header</p>
+								<p>Select your user</p>
 							</div>
 							<div className="card mb-6">
 								<div className="card-content">
@@ -48,17 +51,14 @@ class Logins extends Component {
 										<div className="dropdown">
 											<div className="dropdown-trigger">
 												<button
-													className="button"
+													className="button is-black"
 													aria-haspopup="true"
 													aria-controls="dropdown-menu"
 													onClick={this.handleDropdown}
 												>
 													<span>Select User</span>
 													<span className="icon is-small">
-														<i
-															className="fas fa-angle-down"
-															aria-hidden="true"
-														></i>
+														{this.state.arrow ? <FaAngleDown /> : <FaAngleUp />}
 													</span>
 												</button>
 											</div>

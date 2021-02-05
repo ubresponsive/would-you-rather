@@ -85,17 +85,7 @@ $navbar-item-color: #fff;
 	}
 }
 
-// li {
-// 	margin: 0;
-// 	padding: 0;
-// 	list-style: none;
-// }
-
 /*  Leaderboard Page */
-
-// .media-content {
-// 	border-right: 1px solid #eee;
-// }
 
 .score {
 	height: 140px;
@@ -106,4 +96,27 @@ $navbar-item-color: #fff;
 	justify-content: center;
 	align-items: center;
 	height: 140px;
+}
+
+/* Login Page */
+
+.dropdown-content {
+	padding: 0;
+	div {
+		padding: 1rem 1rem;
+		border-bottom: 1px solid #eee;
+
+		&:hover {
+			cursor: pointer;
+			background: #eee;
+		}
+	}
+}
+
+.button:focus,
+.button:active {
+	border-color: transparent;
+}
+
+.authButton {
 }
