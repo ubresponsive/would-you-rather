@@ -13,7 +13,6 @@ class User extends Component {
 		const { name, avatarURL, questions, answers } = user;
 
 		const votes = Object.keys(answers).length;
-		//const score = votes + questions.length;
 		const score = this.props.score;
 
 		return (

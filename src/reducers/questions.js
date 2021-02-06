@@ -56,7 +56,7 @@ export default function questions(state = {}, action) {
 
 			// only update the votes if current answer is different to his previous answer
 			if (hasVoted === true && currentAnswer === false) {
-				console.log('hasVoted and different from currentAnswer');
+				// console.log('hasVoted and different from currentAnswer');
 				const previousAnswer = getPreviousAnswer();
 				return {
 					...state,

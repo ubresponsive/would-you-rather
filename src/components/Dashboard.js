@@ -103,9 +103,6 @@ function mapStateToProps({ questions, authedUser }) {
 		.length;
 
 	return {
-		// questionIds: Object.keys(questions).sort(
-		// 	(a, b) => questions[b].timestamp - questions[a].timestamp
-		// ),
 		questionIds: newUserIds,
 		answered: countAnswered,
 		unAnswered: countUnAnswered,
