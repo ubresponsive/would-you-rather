@@ -35,7 +35,6 @@ function addQuestion(qid, authedUser) {
 export function handleUserQuestion(qid) {
 	return (dispatch, getState) => {
 		const { authedUser } = getState();
-		console.log(authedUser);
 		dispatch(addQuestion(qid, authedUser));
 	};
 }

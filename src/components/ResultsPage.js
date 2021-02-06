@@ -46,14 +46,14 @@ class ResultsPage extends Component {
 								>
 									{question.optionOne.votes.includes(authedUser) && (
 										<>
-											<p>
+											<div className="block">
 												<div className="tags has-addons">
 													<span className="tag">
 														<Link to={`/question/${id}`}>Change</Link>
 													</span>
 													<span className="tag is-warning">Your Vote</span>
 												</div>
-											</p>
+											</div>
 										</>
 									)}
 									<div className="subtitle">{optionOne.text}</div>
@@ -76,14 +76,14 @@ class ResultsPage extends Component {
 								>
 									{question.optionTwo.votes.includes(authedUser) && (
 										<>
-											<p>
+											<div className="block">
 												<div className="tags has-addons">
 													<span className="tag">
 														<Link to={`/question/${id}`}>Change</Link>
 													</span>
 													<span className="tag is-warning">Your Vote</span>
 												</div>
-											</p>
+											</div>
 										</>
 									)}
 									<div className="subtitle">{optionTwo.text}</div>
