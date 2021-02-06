@@ -47,8 +47,6 @@ class QuestionPage extends Component {
 		return (
 			<div className="columns">
 				<div className="column is-two-fifths">
-					{/* <Question id={id} /> */}
-
 					<h1 className="title is-1">Time to Vote</h1>
 					<div className="message-header">
 						<p>{name} asks:</p>

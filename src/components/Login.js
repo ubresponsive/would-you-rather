@@ -94,8 +94,6 @@ function mapStateToProps({ users, authedUser }) {
 			.sort()
 	);
 
-	console.log('Login Page - mapStatetoProps - authedUser', authedUser);
-
 	return {
 		authedUser,
 		users: newUsers,

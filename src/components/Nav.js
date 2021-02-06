@@ -8,11 +8,16 @@ function AuthButton(props) {
 	const history = useHistory();
 	const authedUser = props.user;
 	const dispatch = props.dispatch;
+	const avatar = props.avatar;
+	const name = props.name;
 
 	return authedUser !== false ? (
-		<div className="authButton">
+		<div className="authButton is-flex is-flex-direction-row is-align-items-flex-start is-justify-content-center is-align-items-center">
+			<figure className="image is-32x32 mr-4">
+				<img src={avatar} alt={`Avatar of ${name}`} className="is-rounded" />
+			</figure>
 			<button
-				className="button is-dark"
+				className="button is-link"
 				onClick={() => {
 					dispatch(logoutUser());
 					history.push('/');
@@ -57,6 +62,8 @@ class Nav extends Component {
 					<div className="navbar-item">
 						<AuthButton
 							user={this.props.authedUser}
+							name={this.props.userId.name}
+							avatar={this.props.userId.avatarURL}
 							dispatch={this.props.dispatch}
 						/>
 					</div>
@@ -66,9 +73,17 @@ class Nav extends Component {
 	}
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser, users }) {
+	let userId = '';
+	authedUser !== false
+		? (userId = Object.values(users).filter(
+				(user) => user.id === authedUser
+		  )[0])
+		: (userId = '');
+
 	return {
 		authedUser,
+		userId: userId,
 	};
 }
 
