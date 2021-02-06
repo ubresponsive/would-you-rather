@@ -15,6 +15,7 @@ import NewQuestion from './NewQuestion';
 import QuestionPage from './QuestionPage';
 import ResultsPage from './ResultsPage';
 import LeaderboardPage from './LeaderboardPage';
+import Error404 from './404';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -83,6 +84,7 @@ class App extends React.Component {
 										component={LeaderboardPage}
 										user={this.props.authedUser}
 									/>
+									<Route component={Error404} />
 								</Switch>
 							</div>
 						</>

@@ -90,7 +90,9 @@ class QuestionPage extends Component {
 												</label>
 											</div>
 										</div>
-										<div className="block is-centered mb-3 ml-5">OR </div>
+										<div className="block is-centered mb-3 ml-5 has-text-weight-bold">
+											OR
+										</div>
 										<div className="field">
 											<div className="control">
 												<label className="radio">

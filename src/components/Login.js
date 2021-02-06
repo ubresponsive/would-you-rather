@@ -51,7 +51,7 @@ class Logins extends Component {
 										<div className="dropdown">
 											<div className="dropdown-trigger">
 												<button
-													className="button is-black"
+													className="button is-dark"
 													aria-haspopup="true"
 													aria-controls="dropdown-menu"
 													onClick={this.handleDropdown}

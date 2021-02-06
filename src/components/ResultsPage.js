@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { formatQuestion } from '../utils/helper';
 
@@ -11,11 +12,13 @@ class ResultsPage extends Component {
 			return <p>This question doesn't exist</p>;
 		}
 
-		const { name, optionOne, optionTwo, avatar } = question;
+		const { name, optionOne, optionTwo, avatar, id } = question;
 
 		const optionOneVotes = optionOne.votes.length;
 		const optionTwoVotes = optionTwo.votes.length;
 		const totalVotes = optionOneVotes + optionTwoVotes;
+		const optionOneP = (optionOneVotes / totalVotes) * 100;
+		const optionTwoP = (optionTwoVotes / totalVotes) * 100;
 
 		return (
 			<div className="columns">
@@ -42,13 +45,24 @@ class ResultsPage extends Component {
 									}`}
 								>
 									{question.optionOne.votes.includes(authedUser) && (
-										<span className="tag is-warning has-text-right">
-											Your Vote
-										</span>
+										<>
+											<p>
+												<div className="tags has-addons">
+													<span className="tag">
+														<Link to={`/question/${id}`}>Change</Link>
+													</span>
+													<span className="tag is-warning">Your Vote</span>
+												</div>
+											</p>
+										</>
 									)}
 									<div className="subtitle">{optionOne.text}</div>
-									<progress className="progress is-info" value="15" max="100">
-										15%
+									<progress
+										className="progress is-info"
+										value={optionOneP}
+										max="100"
+									>
+										{optionOneP}%
 									</progress>
 									<div className="has-text-weight-bold has-text-centered">
 										{optionOneVotes} out of {totalVotes} votes
@@ -61,13 +75,24 @@ class ResultsPage extends Component {
 									}`}
 								>
 									{question.optionTwo.votes.includes(authedUser) && (
-										<span className="tag is-warning has-text-right">
-											Your Vote
-										</span>
+										<>
+											<p>
+												<div className="tags has-addons">
+													<span className="tag">
+														<Link to={`/question/${id}`}>Change</Link>
+													</span>
+													<span className="tag is-warning">Your Vote</span>
+												</div>
+											</p>
+										</>
 									)}
 									<div className="subtitle">{optionTwo.text}</div>
-									<progress className="progress is-info" value="15" max="100">
-										15%
+									<progress
+										className="progress is-info"
+										value={optionTwoP}
+										max="100"
+									>
+										{optionTwoP}%
 									</progress>
 									<div className="has-text-weight-bold has-text-centered">
 										{optionTwoVotes} out of {totalVotes} votes

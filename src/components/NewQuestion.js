@@ -79,12 +79,13 @@ class NewQuestion extends Component {
 												name="optionOne"
 												value={optionOne}
 												onChange={this.handleChange('optionOne')}
+												maxLength="45"
 												required
 											/>
 										</div>
 									</div>
-									<div className="block has-text-centered mb-0">
-										<strong>OR</strong>
+									<div className="block has-text-centered mb-0 has-text-weight-bold">
+										OR
 									</div>
 
 									<div className="field">
@@ -97,6 +98,7 @@ class NewQuestion extends Component {
 												value={optionTwo}
 												name="optionTwo"
 												onChange={this.handleChange('optionTwo')}
+												maxLength="45"
 												required
 											/>
 										</div>
