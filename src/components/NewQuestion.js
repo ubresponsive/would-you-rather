@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addPoll } from '../actions/shared';
 import { toast } from 'react-toastify';
+import { withRouter } from 'react-router-dom';
 
 class NewQuestion extends Component {
 	state = {
@@ -53,6 +54,8 @@ class NewQuestion extends Component {
 		}));
 
 		toast('Your poll has been added');
+
+		this.props.history.push('/');
 	};
 
 	render() {
@@ -138,4 +141,4 @@ function mapStateToProps({ authedUser }) {
 	};
 }
 
-export default connect(mapStateToProps)(NewQuestion);
+export default withRouter(connect(mapStateToProps)(NewQuestion));

@@ -48,7 +48,7 @@ class Nav extends Component {
 						</NavLink>
 					</div>
 					<div className="navbar-item has-text-weight-bold">
-						<NavLink to={'/new'} exact activeClassName="is-active">
+						<NavLink to={'/add'} exact activeClassName="is-active">
 							NEW
 						</NavLink>
 					</div>

@@ -65,7 +65,7 @@ class App extends React.Component {
 									/>
 									<Route path="/login" exact component={Logins} />
 									<PrivateRoute
-										path="/new"
+										path="/add"
 										component={NewQuestion}
 										user={this.props.authedUser}
 									/>

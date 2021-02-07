@@ -19,6 +19,8 @@ class ResultsPage extends Component {
 		const totalVotes = optionOneVotes + optionTwoVotes;
 		const optionOneP = (optionOneVotes / totalVotes) * 100;
 		const optionTwoP = (optionTwoVotes / totalVotes) * 100;
+		const numUsers = Object.keys(this.props.users).length;
+		const usersVote = Math.round((totalVotes / numUsers) * 100);
 
 		return (
 			<div className="columns">
@@ -36,8 +38,14 @@ class ResultsPage extends Component {
 						<div className="card-content">
 							<div className="content">
 								<h3>
-									<strong>Results:</strong>
+									<strong>
+										Results:
+										<span className="ml-4 has-text-right is-size-6">
+											{`${usersVote}%`} of users voted
+										</span>
+									</strong>
 								</h3>
+
 								<div
 									className={`notification ${
 										question.optionOne.votes.includes(authedUser) &&
